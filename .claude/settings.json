@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.env.local)",
+      "Write(./.env)",
+      "Read(./__pycache__/**)",
+      "Read(./.pytest_cache/**)",
+      "Read(./.mypy_cache/**)",
+      "Read(./.ruff_cache/**)",
+      "Read(./.tox/**)",
+      "Read(./venv/**)",
+      "Read(./.venv/**)",
+      "Read(./env/**)",
+      "Read(./dist/**)",
+      "Read(./build/**)",
+      "Read(./*.egg-info/**)",
+      "Read(./logs/**)",
+      "Read(./*.log)",
+      "Read(./tmp/**)",
+      "Read(./*.db)",
+      "Read(./*.sqlite3)",
+      "Read(./.git/**)",
+      "Read(./.idea/**)",
+      "Read(./.vscode/**)"
+    ],
+    "allow": [
+      "Read(./src/**/*.py)",
+      "Bash(python -m ruff check *)",
+      "Bash(python -m ruff format *)",
+      "Bash(python -m pytest tests/**)"
+    ]
+  }
+}

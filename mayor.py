@@ -97,7 +97,7 @@ class Mayors(object):
             goal = mayor.mayor.get("goal", "")
             home_building = mayor.mayor.get("home_building", 0)
             npc_cash = 10000
-            create_npc = json.dumps({"uid": uid, "uri": "command.npc.Create", "method": "POST", "data": {"asset": asset, "model": "gpt-4", "memorySystem": "LongShortTermMemories", "planSystem": "QAFramework", "homeBuilding": home_building, "workBuilding": 0, "nickname": name, "bio": bio, "goal": goal, "cash": npc_cash}}, ensure_ascii=False, separators=(",", ":"))
+            create_npc = json.dumps({"uid": uid, "uri": "command.npc.Create", "method": "POST", "data": {"asset": asset, "model": "default", "memorySystem": "LongShortTermMemories", "planSystem": "QAFramework", "homeBuilding": home_building, "workBuilding": 0, "nickname": name, "bio": bio, "goal": goal, "cash": npc_cash}}, ensure_ascii=False, separators=(",", ":"))
             self.log(f"{uid} Send: {create_npc}")
             await ws.send(create_npc)
             msg = await ws.recv()

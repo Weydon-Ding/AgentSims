@@ -14,6 +14,62 @@ MySQL: 8.0.31
 ```
 We recommend deploying on MacOS or Linux for better stability.
 
+## Docker Quick Start
+
+Docker can be used to run AgentSims in a Linux container on Windows/macOS/Linux. The compose setup starts MySQL 8.0.31, the Tornado WebSocket server, and an nginx static server for the web client.
+
+Before starting, create the local runtime files/directories:
+
+```bash
+mkdir -p snapshot logs
+```
+
+Create `config/api_key.json` locally. This file is ignored by git and mounted into the server container:
+
+```json
+{
+  "base_url": "https://your-openai-compatible-endpoint/v1",
+  "api_key": "your-api-key",
+  "timeout": 50,
+  "temperature": 0,
+  "models": {
+    "default": "your-model-name"
+  }
+}
+```
+
+Start the stack:
+
+```bash
+docker compose up --build
+```
+
+Open the web client at:
+
+```text
+http://localhost:8081
+```
+
+The WebSocket server is exposed at:
+
+```text
+ws://localhost:8000/ws
+```
+
+To stop the stack:
+
+```bash
+docker compose down
+```
+
+To reset the MySQL data volume and rerun database initialization:
+
+```bash
+docker compose down -v
+```
+
+The Docker entrypoint rewrites database hosts in `config/app.json` inside the container to use the compose service name `mysql`. Local source files are not modified by this rewrite.
+
 ## API Key
 For the security of your API Key, we have not included the parameter file in git. Please create the following file
 ```
@@ -23,9 +79,17 @@ yourself and remember not to push it to git.
 
 The file parameter example is:
 ```
-{"gpt-4": "xxxx", "gpt-3.5": "xxxx"}
+{
+  "base_url": "https://your-openai-compatible-endpoint/v1",
+  "api_key": "your-api-key",
+  "timeout": 50,
+  "temperature": 0,
+  "models": {
+    "default": "your-model-name"
+  }
+}
 ``` 
-If you want to deploy your own model, see <a href="https://github.com/py499372727/AgentSims/wiki" title="DOCS">DOCS</a>.
+`base_url` accepts either the `/v1` root of an OpenAI-compatible service or the full `/v1/chat/completions` endpoint. `models` maps the in-game model option name from `config/agent.json` to the actual model name sent to the API.
 
 ## Folder Creation
 Before running, please
@@ -59,7 +123,7 @@ create database `llm_game0002` default character set utf8mb4 collate utf8mb4_uni
 pip install tornado
 pip install mysql-connector-python
 pip install websockets
-pip install openai_async
+pip install httpx
 ```
 
 or

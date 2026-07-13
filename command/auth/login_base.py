@@ -29,7 +29,7 @@ class LoginBase(CommandBase):
         
         # buildings_model = self.get_single_model("Buildings", create=False)
         buildings = ["dessert shop", "gym", "houseZ", "park"]
-        model = "gpt-3.5"
+        model = "default"
         memorySystem = "LongShortTermMemories"
         planSystem = "QAFramework"
         npc_model.model = model

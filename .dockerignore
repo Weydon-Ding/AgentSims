@@ -1,0 +1,17 @@
+.git
+.gitignore
+.idea
+__pycache__
+**/__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.log
+nohup.log
+logs/*
+snapshot/*
+config/api_key.json
+.env
+.venv
+venv
+.DS_Store

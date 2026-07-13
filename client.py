@@ -216,7 +216,7 @@ async def debug(websocket):
     # npc.Create
     # time.sleep(3)
     # npc_asset = "premade_01"
-    # npc_model = "gpt-3.5"
+    # npc_model = "default"
     # npc_memory = "LongShortTermMemories"
     # npc_plan = "QAFramework"
     # npc_home = 3
@@ -231,7 +231,7 @@ async def debug(websocket):
     # msg = await websocket.recv()
     # print(f"Received: {msg}")
     # npc_asset = "premade_04"
-    # npc_model = "gpt-3.5"
+    # npc_model = "default"
     # npc_memory = "LongShortTermMemories"
     # npc_plan = "QAFramework"
     # npc_home = 3

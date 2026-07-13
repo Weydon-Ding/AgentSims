@@ -180,7 +180,7 @@ class Agent:
         self.memory_data.from_json(obj.get("memory_data", dict()))
         self.state.from_json(obj.get("state", dict()))
         self.cache.from_json(obj.get("cache", dict()))
-        self.caller = LLMCaller(obj.get("caller", "gpt-3.5"))
+        self.caller = LLMCaller(obj.get("caller", "default"))
         self.prompts.from_json(obj.get("prompts", dict()))
         self.controller.from_json(obj.get("controller", dict()))
         self.name = obj.get("name", "")

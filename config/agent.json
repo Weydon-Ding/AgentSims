@@ -10,8 +10,7 @@
         "premade_08"
     ],
     "models": [
-        "gpt-4",
-        "gpt-3.5"
+        "default"
     ],
     "memorySystems": [
         "LongShortTermMemories"
