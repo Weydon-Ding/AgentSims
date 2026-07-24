@@ -62,10 +62,12 @@ class App:
                     "tick_count": 0,
                     "start": False,
                 })
+                self.tick_state["start"] = False
                 self.mayor_state = obj.get("mayor_state", {
                     "start_time": 0,
                     "start": False,
                 })
+                self.mayor_state["start"] = False
     
     def save_snapshot(self):
         info = {

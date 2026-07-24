@@ -15,16 +15,18 @@ class ChatWithNPC(CommandBase):
         npc_model = self.get_single_model("NPC", id=int(NPC_id.partition("-")[2]), create=False)
         if not npc_model:
             return self.error("NPC not found")
-        npc_model.add_chat(player_id, content, False)
         player_model = self.get_single_model("Player", create=False)
         if not player_model:
             return self.error("Player not found")
-        player_model.add_chat(NPC_id, content)
+        display_content = content.partition(": ")[2] if type(content) is str and ": " in content else content
+        chat_content = content if type(content) is str and ": " in content else f"{player_model.name}: {content}"
+        npc_model.add_chat(player_id, chat_content, False)
+        player_model.add_chat(NPC_id, chat_content)
         self.app.send(player_id, {"code": 200, "uri": "chatWith", "uid": player_id,
-                                  "data": {"sourceID": player_id, "targetID": NPC_id, "content": content}})
+                                  "data": {"sourceID": player_id, "targetID": NPC_id, "content": display_content}})
         last_chats = [{"speaker": player_model.name if x["isSender"] else npc_model.name, "content": x["content"]} for x
                       in player_model.chats.get(NPC_id, list())[::-1]]
-        last_chats.append({"speaker": player_model.name, "content": content})
+        last_chats.append({"speaker": player_model.name, "content": display_content})
 
         map_model = self.get_single_model("Map", create=False)
         if not map_model:

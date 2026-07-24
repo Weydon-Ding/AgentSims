@@ -374,7 +374,6 @@ class Tick(CommandBase):
             if  current_tick % eval_module.interval == 0:
                 eval_res, response = await eval_module()
                 eval_res = await eval_res
-                response = await response
                 print(f'{eval_name}: {eval_res}')
                 with open('logs/eval_results.txt','a+') as f:
                     f.write(f'tick {current_tick}: {eval_name}: {eval_res}\n, response: {response} \n')
