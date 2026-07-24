@@ -1,0 +1,16 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/Administrator/Docker/AgentSims/frontend[39m
+
+ [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven welcome 鎺ㄩ€?When 鏀跺埌鏈叧鑱斿抚 Then 閫氳繃 push 璁㈤槄鍙戝嚭
+ [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven ping 璇锋眰 When 鍚庣鍝嶅簲 ping envelope Then promise 瑙ｆ瀽 ping data
+ [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven 鏅€氬懡浠?When 鏀跺埌鐩稿悓 uid 涓?uri 鐨?envelope Then 鍖归厤璇锋眰
+ [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven envelope 璁㈤槄 When 鏀跺埌鍚堟硶鍝嶅簲鍚庡彇娑堣闃?Then 浠呴娆″搷搴旈€氱煡 listener
+ [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven Mayor 璇锋眰 When 鍚庣浠?Player uid 鍝嶅簲 Then 瑙勮寖鍖?uid 鍚庤В鏋? [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven 鐩稿悓 uid 鍜?uri 鐨勫苟鍙戣姹?When 棣栦釜鍝嶅簲鍒拌揪 Then FIFO 涓茶鍙戦€佸苟鎸夐『搴忚В鏋? [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven Mayor 涓?Player 鍚?URI 骞跺彂璇锋眰 When 鍝嶅簲浠?Player uid 杩斿洖 Then 鎸夎鑼冨寲 UID 鍏变韩 FIFO
+ [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven 鎰忓鍏抽棴 When backoff 鍒版湡 Then 寤虹珛鏂扮殑杩炴帴
+ [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven 宸插彂閫佷笟鍔″抚 When keepalive 鍒版湡 Then 鑷姩鍙戦€佸悓 uid 鐨?ping
+ [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven 鏃犲搷搴旇姹?When 鍒拌揪璇锋眰涓婇檺 Then 鎷掔粷甯︿笂涓嬫枃鐨勮秴鏃堕敊璇? [32m鉁?[39m src/protocol/__tests__/ws-client.test.ts[2m > [22mWsClient[2m > [22mGiven 鎹熷潖 JSON When 鏀跺埌娑堟伅 Then 鍙戦€侀敊璇簨浠朵笖瀹㈡埛绔户缁繍琛?
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m11 passed[39m[22m[90m (11)[39m
+[2m   Start at [22m 17:43:55
+[2m   Duration [22m 4.81s[2m (transform 101ms, setup 0ms, collect 128ms, tests 21ms, environment 1.43s, prepare 182ms)[22m
+
