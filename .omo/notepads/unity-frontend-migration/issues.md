@@ -96,3 +96,9 @@ _Auto-scaffolded by /start-work. Append new entries below - never overwrite._
 - **Problem**: 仅验证 `data` 是对象会让 `{ uri: 'movePath', data: {} }` 进入 reducer，可能以 undefined key 污染 store。
 - **Fix**: 新增按 URI 的字段级 guard；未知输入仅在满足 reducer 读取字段后才会分发，否则记录 `Malformed push frame`。测试锁定空 `movePath` 无异常、无 `paths.undefined` 和日志副作用。
 - **Coverage**: `newAction` 的 action state 在 `finishAction` 到来前单独断言，避免后续状态覆盖掩盖 handler 缺失。
+
+## T5: Existing Envelope Constraint
+
+- **Problem**: 初版 fake response 只有 `code`、`uid`、`uri`、`data`，使真实 `WsClient.isEnvelope()` 拒绝它并造成回放超时。
+- **Fix**: conformance mock 现在发送与 `ResponseEnvelope` 一致的 `msg: ''`；这让测试经过真实 transport guard 和 correlation FIFO，而不是直接调用内部函数。
+- **Scope**: 未修改 T3 transport 行为；这只是使 T5 mock 忠实于既有服务器 envelope 合同。

@@ -91,3 +91,11 @@ _Auto-scaffolded by /start-work. Append new entries below - never overwrite._
 - `mayor.npc.Create` 由 `app.py` 原样转发 `command.npc.Create` response，不是 `NPCDTO`：必须以 response 的 `uid` 建实体键，并将 `nickname`、camelCase building 字段显式映射到 NPC partial；回归测试必须断言不会创建 `NPC-0`。
 - `dispatchIncomingPush` 是未知 WebSocket 帧的唯一边界，不能只验证 `data` 为对象；按 URI 校验 handler 会读取的字段后才可进入 store，避免 `{ uri: 'movePath', data: {} }` 生成 `paths.undefined`。
 - 对会覆写同一 store key 的推送，必须在下一事件分发前断言中间状态；`newAction` 在 `finishAction` 前的单独断言防止其 handler 被后续事件掩盖。
+
+## T5: Protocol Conformance Harness
+
+- `App.execute()` 的 `"uri" in info and "method" in info` 是实际分发前置条件；请求合同除类型完整性外必须对未知帧显式拒绝缺失 `method`。
+- `CommandBase.check_params()` 同时读取顶层 `uid` 和 `data`，因此 T5 的独立后端需求表只收集各命令位于 `data` 的键，`uid` 固定验证为顶层帧字段。
+- 覆盖报告应把 `ping` 从 20 个 working commands 分开计数，并以 fixture URI 集合与 `REQUEST_URIS` / `PUSH_URIS` 双向精确相等及零 missing 数量验证。
+- 黄金 JSONL 种子只定义稳定化后的 `direction`、`uri`、可选 `uid` 和解析后的 `frame`；T26 才能将真实 Unity CDP 会话写入该格式。
+- Push conformance 不能把“不抛出”当作“已处理”：`dispatchIncomingPush` 对畸形已知 URI 会安全拒绝并写 `unknown-push`。每条合法 fixture 必须同时证明 `isDispatchablePush(frame)` 为真、分发后无 `unknown-push`，并对关键 URI 断言 store delta；另保留畸形已知 URI 的拒绝对照。

@@ -91,7 +91,7 @@
   QA happy: run `cd frontend && npx vitest run src/protocol/__tests__/push-handlers.test.ts --reporter=verbose | tee test-results/t04-push.txt`；喂入 15 个 fixtures -> 断言 store deltas。QA failure: 同一命令使用 unknown-uri fixture，断言写入 `useLogStore` 且不 throw（evidence `frontend/test-results/t04-fail.txt`）。
   Commit: `feat(protocol): add push-handler registry and zustand stores`
 
-- [ ] 5. Protocol conformance test harness (golden-trace-ready)
+- [x] 5. Protocol conformance test harness (golden-trace-ready)
   References: 上方 contract；`app.py` envelope；`command/**` 中所有 command `execute()` signatures。
   Action: `frontend/src/protocol/__tests__/conformance.ts` + `frontend/test-fixtures/golden/` —— mock WS server 回放 recorded frames；测试断言：a) 每个 request URI 构造精确 `{uid,uri,method,data}`，并包含 `check_params` 要求的 `data` keys；b) 每个 push URI 被处理且不 throw。提供 `capture.ts` devtool stub，记录如何捕获真实 Unity 会话（T26 填充 fixtures）。
   Acceptance: `npm run test -- conformance` 通过；coverage report 列出所有 20 working + 1 broken（ChangePrompt）request URI + `ping`，以及所有 15 push URI。

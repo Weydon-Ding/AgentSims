@@ -24,7 +24,7 @@
       "plan_name": "unity-frontend-migration",
       "status": "active",
       "started_at": "2026-07-24T05:53:23.899Z",
-      "updated_at": "2026-07-24T09:50:30.108Z",
+      "updated_at": "2026-07-24T10:25:00.609Z",
       "session_ids": [
         "opencode:ses_06d508336ffevuV3joNudOY3xm"
       ],
@@ -73,6 +73,16 @@
           "updated_at": "2026-07-24T09:28:39.941Z",
           "started_at": "2026-07-24T09:28:39.941Z",
           "status": "running"
+        },
+        "todo:5": {
+          "task_key": "todo:5",
+          "task_label": "5",
+          "task_title": "Protocol conformance test harness (golden-trace-ready)",
+          "session_id": "opencode:ses_06c64583cffeXZty7RHjwGQqtK",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-24T09:55:28.173Z",
+          "status": "running",
+          "updated_at": "2026-07-24T10:25:00.610Z"
         }
       }
     }
@@ -80,7 +90,7 @@
   "active_plan": "C:\\Users\\Administrator\\Docker\\AgentSims\\.omo\\plans\\unity-frontend-migration.md",
   "started_at": "2026-07-24T05:53:23.899Z",
   "status": "active",
-  "updated_at": "2026-07-24T09:50:30.108Z",
+  "updated_at": "2026-07-24T10:25:00.609Z",
   "session_ids": [
     "opencode:ses_06d508336ffevuV3joNudOY3xm"
   ],
@@ -129,6 +139,16 @@
       "updated_at": "2026-07-24T09:28:39.941Z",
       "started_at": "2026-07-24T09:28:39.941Z",
       "status": "running"
+    },
+    "todo:5": {
+      "task_key": "todo:5",
+      "task_label": "5",
+      "task_title": "Protocol conformance test harness (golden-trace-ready)",
+      "session_id": "opencode:ses_06c64583cffeXZty7RHjwGQqtK",
+      "agent": "Sisyphus-Junior",
+      "started_at": "2026-07-24T09:55:28.173Z",
+      "status": "running",
+      "updated_at": "2026-07-24T10:25:00.610Z"
     }
   },
   "agent": "atlas"

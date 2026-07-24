@@ -1,0 +1,15 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/Administrator/Docker/AgentSims/frontend[39m
+
+ [32m鉁?[39m src/protocol/__tests__/conformance.test.ts[2m > [22mprotocol conformance harness[2m > [22mGiven all request fixtures, When validating backend requirements, Then every URI has an exact frame and required data keys
+ [32m鉁?[39m src/protocol/__tests__/conformance.test.ts[2m > [22mprotocol conformance harness[2m > [22mGiven every typed push fixture, When replayed through the boundary, Then all are accepted, dispatched, and never logged as malformed
+ [32m鉁?[39m src/protocol/__tests__/conformance.test.ts[2m > [22mprotocol conformance harness[2m > [22mGiven a malformed known movePath push, When replayed, Then the guard rejects it and the boundary records an unknown-push
+ [32m鉁?[39m src/protocol/__tests__/conformance.test.ts[2m > [22mprotocol conformance harness[2m > [22mGiven the protocol coverage report, When inspected, Then it explicitly lists 20 working requests, one broken request, ping, and 15 pushes
+ [32m鉁?[39m src/protocol/__tests__/conformance.test.ts[2m > [22mprotocol conformance harness[2m > [22mGiven an unknown frame missing method, When the validator sees it, Then dispatch precondition failure is explicit
+ [32m鉁?[39m src/protocol/__tests__/conformance.test.ts[2m > [22mprotocol conformance harness[2m > [22mGiven an unknown ChangePrompt frame missing promptText, When validated, Then it fails for that real backend-required key
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m6 passed[39m[22m[90m (6)[39m
+[2m   Start at [22m 18:20:27
+[2m   Duration [22m 4.57s[2m (transform 137ms, setup 0ms, collect 211ms, tests 19ms, environment 1.28s, prepare 151ms)[22m
+

@@ -1,0 +1,10 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/Administrator/Docker/AgentSims/frontend[39m
+
+ [32m鉁?[39m src/protocol/__tests__/conformance.test.ts[2m > [22mprotocol conformance harness[2m > [22mGiven an unknown ChangePrompt frame missing promptText, When validated, Then it fails for that real backend-required key
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[2m | [22m[33m5 skipped[39m[90m (6)[39m
+[2m   Start at [22m 18:20:24
+[2m   Duration [22m 4.62s[2m (transform 159ms, setup 0ms, collect 234ms, tests 3ms, environment 1.42s, prepare 177ms)[22m
+
