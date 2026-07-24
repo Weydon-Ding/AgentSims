@@ -1,0 +1,8 @@
+{
+  "name": "TypeScript type error fixture",
+  "type": "typescript",
+  "expect_fail": true,
+  "files": ["test-fixtures/negative/type-error.fixture.ts"],
+  "temp_dir": false,
+  "description": "Verifies that TypeScript compilation fails on intentional type errors"
+}
