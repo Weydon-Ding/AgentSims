@@ -1,4 +1,5 @@
-import type { BuildingDTO, JsonValue, NPCDTO, NPCUid, PlayerUid, Position, Uid } from './dtos';
+import type { BuildingDTO, JsonValue, NPCUid, PlayerUid, Position, Uid } from './dtos';
+import type { RequestResponseData } from './requests';
 
 export const PUSH_URIS = [
   'welcome',
@@ -77,7 +78,7 @@ export type PushDataByUri = {
     readonly income: number;
     readonly amount: number;
   };
-  readonly 'mayor.npc.Create': NPCDTO;
+  readonly 'mayor.npc.Create': RequestResponseData['command.npc.Create'];
   readonly 'mayor.building.Create': BuildingDTO;
 };
 

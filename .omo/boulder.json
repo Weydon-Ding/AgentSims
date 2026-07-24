@@ -24,7 +24,7 @@
       "plan_name": "unity-frontend-migration",
       "status": "active",
       "started_at": "2026-07-24T05:53:23.899Z",
-      "updated_at": "2026-07-24T09:13:01.969Z",
+      "updated_at": "2026-07-24T09:50:30.108Z",
       "session_ids": [
         "opencode:ses_06d508336ffevuV3joNudOY3xm"
       ],
@@ -52,6 +52,27 @@
           "started_at": "2026-07-24T08:41:12.345Z",
           "status": "running",
           "updated_at": "2026-07-24T09:13:01.970Z"
+        },
+        "todo:3": {
+          "task_key": "todo:3",
+          "task_label": "3",
+          "task_title": "WebSocket client core with correlation + reconnect + ping",
+          "session_id": "opencode:ses_06c82b8cfffeTHtdxW9siBxVp2",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-24T09:16:09.627Z",
+          "status": "running",
+          "updated_at": "2026-07-24T09:50:30.109Z"
+        },
+        "todo:4": {
+          "task_key": "todo:4",
+          "task_label": "4",
+          "task_title": "Push-handler registry + Zustand entity stores",
+          "session_id": "opencode:ses_06c957ecdffe8bKCb3LyJwszmB",
+          "agent": "Sisyphus-Junior",
+          "category": "visual-engineering",
+          "updated_at": "2026-07-24T09:28:39.941Z",
+          "started_at": "2026-07-24T09:28:39.941Z",
+          "status": "running"
         }
       }
     }
@@ -59,7 +80,7 @@
   "active_plan": "C:\\Users\\Administrator\\Docker\\AgentSims\\.omo\\plans\\unity-frontend-migration.md",
   "started_at": "2026-07-24T05:53:23.899Z",
   "status": "active",
-  "updated_at": "2026-07-24T09:13:01.969Z",
+  "updated_at": "2026-07-24T09:50:30.108Z",
   "session_ids": [
     "opencode:ses_06d508336ffevuV3joNudOY3xm"
   ],
@@ -87,6 +108,27 @@
       "started_at": "2026-07-24T08:41:12.345Z",
       "status": "running",
       "updated_at": "2026-07-24T09:13:01.970Z"
+    },
+    "todo:3": {
+      "task_key": "todo:3",
+      "task_label": "3",
+      "task_title": "WebSocket client core with correlation + reconnect + ping",
+      "session_id": "opencode:ses_06c82b8cfffeTHtdxW9siBxVp2",
+      "agent": "Sisyphus-Junior",
+      "started_at": "2026-07-24T09:16:09.627Z",
+      "status": "running",
+      "updated_at": "2026-07-24T09:50:30.109Z"
+    },
+    "todo:4": {
+      "task_key": "todo:4",
+      "task_label": "4",
+      "task_title": "Push-handler registry + Zustand entity stores",
+      "session_id": "opencode:ses_06c957ecdffe8bKCb3LyJwszmB",
+      "agent": "Sisyphus-Junior",
+      "category": "visual-engineering",
+      "updated_at": "2026-07-24T09:28:39.941Z",
+      "started_at": "2026-07-24T09:28:39.941Z",
+      "status": "running"
     }
   },
   "agent": "atlas"

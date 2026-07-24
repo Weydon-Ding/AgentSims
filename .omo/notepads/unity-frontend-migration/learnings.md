@@ -72,3 +72,22 @@ _Auto-scaffolded by /start-work. Append new entries below - never overwrite._
 - `command.npc.Create` writes `work_building_` instead of ORM field `work_building`; newly created NPC DTOs therefore legitimately serialize `work_building: null`, which the client contract must preserve as `number | null`.
 - Keep request responses in an exhaustive `RequestResponseData` URI map rather than a generic record; this preserves the data contract used by each later WebSocket caller.
 - `welcome` is the only verified push without a `data` key, so its optionality belongs in the `PushFrameByUri<'welcome'>` conditional branch rather than in every push frame.
+
+## T3: WebSocket Correlation and Recovery
+
+- Backend responses have no request ID, so correlation must serialize outbound frames by `(normalizedUid, uri)` and only dispatch the queue head; a response may then safely release exactly one caller and send the next queued frame.
+- `app.py` rewrites Mayor outbound command UIDs to Player UIDs before emitting the ordinary response. Normalize `Mayor-<id>` to `Player-<id>` only for correlation keys, while preserving the original frame sent to the backend.
+- Keep incoming pushes and unmatched envelopes behind client event subscriptions. This lets T4 own state mutation without coupling the transport to Zustand.
+- A keepalive needs a remembered active UID after the business queue drains. Otherwise an interval exists but never emits a ping during the idle period it is intended to protect.
+- Use injected, event-driven WebSocket fakes plus Vitest fake timers for reconnect and timeout paths; do not depend on a live Tornado/MySQL process.
+- The 250 pure-LOC ceiling is a shipping constraint, not a reporting estimate: keep `WsClient` orchestration separate from transport guards/correlation helpers and exported error types, then remeasure every `ws-client*.ts` file before handoff.
+- Correlation regression coverage must mix `Mayor-<id>` and `Player-<id>` requests for the same URI: both normalize to one key, so the second frame must remain unsent until the first `Player-<id>` response drains the shared FIFO queue.
+
+## T4: Push Store And Dispatch Patterns
+
+- 每个 Zustand store 暴露 `reset()`，使协议 fixture 在 `beforeEach` 中从确定性空状态开始，不需要测试专用分支。
+- 推送处理器以 `satisfies { [U in PushUri]: ... }` 的完整 URI 映射约束覆盖范围；新增 `PushUri` 会在编译期要求补齐 handler。
+- `chatWith` 通过 `'chats' in data` 区分历史记录与直接消息；未知或畸形原始帧经 `dispatchIncomingPush(unknown)` 写入日志且不抛出。
+- `mayor.npc.Create` 由 `app.py` 原样转发 `command.npc.Create` response，不是 `NPCDTO`：必须以 response 的 `uid` 建实体键，并将 `nickname`、camelCase building 字段显式映射到 NPC partial；回归测试必须断言不会创建 `NPC-0`。
+- `dispatchIncomingPush` 是未知 WebSocket 帧的唯一边界，不能只验证 `data` 为对象；按 URI 校验 handler 会读取的字段后才可进入 store，避免 `{ uri: 'movePath', data: {} }` 生成 `paths.undefined`。
+- 对会覆写同一 store key 的推送，必须在下一事件分发前断言中间状态；`newAction` 在 `finishAction` 前的单独断言防止其 handler 被后续事件掩盖。

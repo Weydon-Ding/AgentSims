@@ -1,0 +1,11 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/Administrator/Docker/AgentSims/frontend[39m
+
+ [32m鉁?[39m src/protocol/__tests__/push-handlers.test.ts[2m > [22m鎺ㄩ€佸鐞嗗櫒[2m > [22mGiven 15 涓崗璁帹閫?When 鍒嗗彂 Then 姣忎釜鎺ㄩ€佹洿鏂板搴旂姸鎬佸垏鐗? [32m鉁?[39m src/protocol/__tests__/push-handlers.test.ts[2m > [22m鎺ㄩ€佸鐞嗗櫒[2m > [22mGiven chat 鍘嗗彶杞借嵎 When 鍒嗗彂 chatWith Then 鏇挎崲鑱婂ぉ璁板綍
+ [32m鉁?[39m src/protocol/__tests__/push-handlers.test.ts[2m > [22m鎺ㄩ€佸鐞嗗櫒[2m > [22mGiven 鏈煡鎴栫暩褰㈡帹閫?When 瀹夊叏鍒嗗彂 Then 鍐欏叆鏃ュ織涓斾笉鎶涘嚭
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+[2m   Start at [22m 17:46:52
+[2m   Duration [22m 4.56s[2m (transform 101ms, setup 0ms, collect 149ms, tests 10ms, environment 1.30s, prepare 174ms)[22m
+

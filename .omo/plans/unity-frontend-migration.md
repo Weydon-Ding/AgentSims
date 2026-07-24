@@ -77,14 +77,14 @@
   QA happy: run `cd frontend && npx vitest run src/protocol/__tests__/types.test.ts --reporter=verbose | tee test-results/t02-types.txt`；snapshot 断言 request URI union length == 22（20 working + ChangePrompt + ping）且 push URI length == 15。QA failure: run `cd frontend && npx vitest run src/protocol/__tests__/negative/typo-uri.test.ts --reporter=verbose | tee test-results/t02-fail.txt`；negative fixture 断言 `tsc --noEmit` 或 exhaustive switch validation 在不编辑源码的情况下失败。
   Commit: `feat(protocol): add typed request/push contract types`
 
-- [ ] 3. WebSocket client core with correlation + reconnect + ping
+- [x] 3. WebSocket client core with correlation + reconnect + ping
   References: `app.py:100`（welcome）；`app.py:173-177`（ping）；`main.py:30,38`（/ws :8000）；`command_base.py:24-42`（_execute）。
   Action: `frontend/src/protocol/ws-client.ts` —— `WsClient.connect(url)`、`send(frame: RequestFrame)`、auto `ping` keepalive（interval 来自 `config/app.json` `ping` 或 20s）、exponential-backoff reconnect、`JSON.parse`、emit envelope or push。因为协议没有 request id，按 `(normalizedUid, uri)` queue 串行化；Mayor requests 的 outbound correlation uid 从 `Mayor-<id>` normalize 为 `Player-<id>`，因为 `app.py:163-170` 会重写 `info["uid"]` 且普通响应使用改写后的 `uid`（`app.py:194-199`）。URL 由 constructor 注入，因此 dev `:5173` 可代理 `/ws` -> `:8000`。
   Acceptance: 对 mock WS server，`ping` frame 得到 `{data:{ping:true}}`；`command.config.GetBuildingsConfig` request 得到 matching `uri` 的 envelope；Mayor request 在 response `uid` 为 `Player-<id>` 时 resolve；相同 `(uid,uri)` 并发调用 FIFO/serialized。
   QA happy: run `cd frontend && npx vitest run src/protocol/__tests__/ws-client.test.ts --reporter=verbose | tee test-results/t03-ws.txt`；mock server 断言 ping、reconnect、Mayor uid normalization、FIFO serialization。QA failure: 同一测试文件的 malformed-JSON case 写 `test-results/t03-fail.txt`，并断言 parse error/no crash。
   Commit: `feat(protocol): add ws client with correlation, ping, reconnect`
 
-- [ ] 4. Push-handler registry + Zustand entity stores
+- [x] 4. Push-handler registry + Zustand entity stores
   References: 上方全部 15 个 push URI + shapes；`NPCModel.py`、`PlayerModel.py`、`BuildingsModel.py` 的 store fields。
   Action: `frontend/src/protocol/push-handlers.ts` dispatcher，把每个 `PushUri` 映射到 pure reducer，并更新 Zustand stores（`useEntityStore` for NPC/Player/Building/Equipment，`useChatStore`，`useSimStore` for tick/mayor state，`useLogStore` for NPC-React）。处理两种 `chatWith` variant（用是否存在 `data.chats` 区分）。`useConnectionStore` 处理 welcome/uid。
   Acceptance: 分发 15 个 push fixtures 时更新正确 store slice；selector hooks 返回期望值。

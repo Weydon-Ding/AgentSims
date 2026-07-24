@@ -84,3 +84,15 @@ _Auto-scaffolded by /start-work. Append new entries below - never overwrite._
   4. Created `src/__tests__/tailwind-build.smoke.test.ts` to verify build output contains no raw `@tailwind` and has Tailwind utilities
 - **Verification**: CSS file size increased from 0.40 kB (raw) to 6.88 kB (processed); no `@tailwind` in output; smoke test passes
 - **Lesson**: Config files are NOT build artifacts - never delete them during cleanup
+
+## T4: Mayor NPC Create Push Shape
+
+- **Problem**: `mayor.npc.Create` 曾被错误建模为 `NPCDTO`，handler 因缺少 `id` 回退写入 `NPC-0`。
+- **Root Cause**: `app.py` 转发的是 `command.npc.Create` 的 response，其中有 `uid`、`nickname` 和 camelCase building 字段，没有 DTO `id`。
+- **Fix**: 推送协议复用 `RequestResponseData['command.npc.Create']`，并以 `data.uid` 对实体 partial 映射。测试同时断言 `NPC-2` 存在且 `NPC-0` 不存在。
+
+## T4: Known URI Malformed Data Guard
+
+- **Problem**: 仅验证 `data` 是对象会让 `{ uri: 'movePath', data: {} }` 进入 reducer，可能以 undefined key 污染 store。
+- **Fix**: 新增按 URI 的字段级 guard；未知输入仅在满足 reducer 读取字段后才会分发，否则记录 `Malformed push frame`。测试锁定空 `movePath` 无异常、无 `paths.undefined` 和日志副作用。
+- **Coverage**: `newAction` 的 action state 在 `finishAction` 到来前单独断言，避免后续状态覆盖掩盖 handler 缺失。
