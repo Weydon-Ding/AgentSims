@@ -62,3 +62,13 @@ _Auto-scaffolded by /start-work. Append new entries below - never overwrite._
 - Custom colors (like `primary-*`) must be defined in `tailwind.config.js` theme.extend.colors
 - Verify Tailwind is working by checking dist CSS does NOT contain raw `@tailwind` directives
 - Add smoke test (`src/__tests__/tailwind-build.smoke.test.ts`) to prevent regression
+
+## T2: Typed Protocol Contract
+
+- Keep request identity formats in the per-URI data map: `ChatWithNPC.NPCID` is `NPC-<id>`, while `GetNPCInfo.NPCID` and `GetBuildingInfo.buildingID` are bare numbers.
+- A `RequestFrame` discriminated union derived from the URI map preserves URI-to-data pairing for later WebSocket callers.
+- Windows Vitest child processes should use `spawnSync(..., { shell: true })` when invoking `npx`; it permits the negative URI fixture to exercise the real TypeScript compiler.
+- DTO `id` fields are optional because backend `as_object(False)` deliberately omits them; runtime DTO field tests cover this serialization behavior.
+- `command.npc.Create` writes `work_building_` instead of ORM field `work_building`; newly created NPC DTOs therefore legitimately serialize `work_building: null`, which the client contract must preserve as `number | null`.
+- Keep request responses in an exhaustive `RequestResponseData` URI map rather than a generic record; this preserves the data contract used by each later WebSocket caller.
+- `welcome` is the only verified push without a `data` key, so its optionality belongs in the `PushFrameByUri<'welcome'>` conditional branch rather than in every push frame.

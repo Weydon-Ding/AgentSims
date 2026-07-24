@@ -24,7 +24,7 @@
       "plan_name": "unity-frontend-migration",
       "status": "active",
       "started_at": "2026-07-24T05:53:23.899Z",
-      "updated_at": "2026-07-24T08:37:33.711Z",
+      "updated_at": "2026-07-24T09:13:01.969Z",
       "session_ids": [
         "opencode:ses_06d508336ffevuV3joNudOY3xm"
       ],
@@ -42,6 +42,16 @@
           "started_at": "2026-07-24T06:12:34.407Z",
           "status": "running",
           "updated_at": "2026-07-24T08:37:33.711Z"
+        },
+        "todo:2": {
+          "task_key": "todo:2",
+          "task_label": "2",
+          "task_title": "Typed protocol types module from verified contract",
+          "session_id": "opencode:ses_06ca4e485ffeFoICn3esubSK0H",
+          "agent": "Sisyphus-Junior",
+          "started_at": "2026-07-24T08:41:12.345Z",
+          "status": "running",
+          "updated_at": "2026-07-24T09:13:01.970Z"
         }
       }
     }
@@ -49,7 +59,7 @@
   "active_plan": "C:\\Users\\Administrator\\Docker\\AgentSims\\.omo\\plans\\unity-frontend-migration.md",
   "started_at": "2026-07-24T05:53:23.899Z",
   "status": "active",
-  "updated_at": "2026-07-24T08:37:33.711Z",
+  "updated_at": "2026-07-24T09:13:01.969Z",
   "session_ids": [
     "opencode:ses_06d508336ffevuV3joNudOY3xm"
   ],
@@ -67,6 +77,16 @@
       "started_at": "2026-07-24T06:12:34.407Z",
       "status": "running",
       "updated_at": "2026-07-24T08:37:33.711Z"
+    },
+    "todo:2": {
+      "task_key": "todo:2",
+      "task_label": "2",
+      "task_title": "Typed protocol types module from verified contract",
+      "session_id": "opencode:ses_06ca4e485ffeFoICn3esubSK0H",
+      "agent": "Sisyphus-Junior",
+      "started_at": "2026-07-24T08:41:12.345Z",
+      "status": "running",
+      "updated_at": "2026-07-24T09:13:01.970Z"
     }
   },
   "agent": "atlas"

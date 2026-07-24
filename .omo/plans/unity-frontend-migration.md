@@ -70,7 +70,7 @@
   QA happy: run `cd frontend && npm run build | tee test-results/t01-build.txt` -> exit 0，`dist/` 存在。QA failure: run `cd frontend && npx vitest run src/__tests__/negative/type-error.fixture.test.ts --reporter=verbose | tee test-results/t01-fail.txt`；fixture 断言 typecheck negative case 在不修改源码的情况下以非零退出。
   Commit: `chore(frontend): scaffold vite react-ts project with toolchain`
 
-- [ ] 2. Typed protocol types module from verified contract
+- [x] 2. Typed protocol types module from verified contract
   References: 上方 contract；`app.py:144-228`；`command_base.py:24-82`；`single_model_base.py:37`；上方列出的 model orm fields。
   Action: 创建 `frontend/src/protocol/types.ts`，导出：`RequestFrame`、`ResponseEnvelope`、`Uid`、`Uri`（20 个 working command URI + backend-broken `command.npc.ChangePrompt` + `ping` = 22 个 request URI case 的 union）、`PushUri`（全部 15 个 push URI 的 union），以及与 verified shapes 匹配的 per-URI `Params`/`Data` types。编码 **call-dependent NPCID/buildingID format difference**（ChatWithNPC NPCID=`"NPC-<id>"` string；GetNPCInfo NPCID=bare int；GetBuildingInfo buildingID=bare int）。一个 `as const` URI table。导出 `NPCDTO`、`MapDTO`、`BuildingsDTO`、`EquipmentDTO`、`PlayerDTO`、`TownDTO`，与各 model orm fields 匹配，并将 `id?` 声明为 OPTIONAL（`as_object(True)` 时存在，`as_object(False)` 时缺失）。
   Acceptance: `tsc --noEmit` clean；无 `any`；union 中每个 URI 至少被一个 caller stub 引用。

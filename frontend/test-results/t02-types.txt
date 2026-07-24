@@ -1,0 +1,15 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/Administrator/Docker/AgentSims/frontend[39m
+
+ [32m鉁?[39m src/protocol/__tests__/types.test.ts[2m > [22m鍗忚绫诲瀷濂戠害[2m > [22mGiven 宸查獙璇佽姹傚绾?When 妫€鏌?URI 琛?Then 鎭版湁 22 涓畬鏁?URI
+ [32m鉁?[39m src/protocol/__tests__/types.test.ts[2m > [22m鍗忚绫诲瀷濂戠害[2m > [22mGiven 宸查獙璇佹帹閫佸绾?When 妫€鏌?URI 琛?Then 鎭版湁 15 涓畬鏁?URI
+ [32m鉁?[39m src/protocol/__tests__/types.test.ts[2m > [22m鍗忚绫诲瀷濂戠害[2m > [22mGiven 鍏ㄩ儴 request URI When 鏋勯€犺皟鐢ㄥ抚 Then 姣忎釜 URI 鍏锋湁瀵瑰簲鐨?params stub
+ [32m鉁?[39m src/protocol/__tests__/types.test.ts[2m > [22m鍗忚绫诲瀷濂戠害[2m > [22mGiven 璋冪敤鐩稿叧 ID 鏍煎紡 When 鏋勯€犲抚 Then 姣忎釜 URI 鍙帴鍙楀叾鍚庣鏍煎紡
+ [32m鉁?[39m src/protocol/__tests__/types.test.ts[2m > [22m鍗忚绫诲瀷濂戠害[2m > [22mGiven chatWith 鎺ㄩ€?When 鏋勯€犱袱绉嶅悗绔浇鑽?Then 涓ょ鍙樹綋鍧囪鍗忚鎺ュ彈
+ [32m鉁?[39m src/protocol/__tests__/types.test.ts[2m > [22m鍗忚绫诲瀷濂戠害[2m > [22mGiven welcome push 鏃?data When 鏋勯€犵湡瀹炲抚 Then welcome 鐗逛緥琚帴鍙? [32m鉁?[39m src/protocol/__tests__/types.test.ts[2m > [22m鍗忚绫诲瀷濂戠害[2m > [22mGiven 姣忎釜 response URI When 妫€鏌ユ槧灏?Then response data 涓嶅啀鏄€氶厤璁板綍
+ [32m鉁?[39m src/protocol/__tests__/types.test.ts[2m > [22m鍗忚绫诲瀷濂戠害[2m > [22mGiven ORM DTOs When id 鐢?as_object 鎺у埗 Then id 鍙渷鐣ヤ笖瀛楁鍚嶄繚鎸佺ǔ瀹?
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m8 passed[39m[22m[90m (8)[39m
+[2m   Start at [22m 17:08:48
+[2m   Duration [22m 5.17s[2m (transform 67ms, setup 0ms, collect 79ms, tests 6ms, environment 1.34s, prepare 203ms)[22m
+
